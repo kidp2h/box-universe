@@ -1,0 +1,10 @@
+{
+  "name": "box-universe",
+  "version": "1.0.0",
+  "description": "app social entertainment",
+  "main": "index.js",
+  "repository": "https://github.com/kidp2h/box-universe.git",
+  "author": "kidp2h",
+  "license": "MIT",
+  "private": true
+}
