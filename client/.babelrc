@@ -1,0 +1,17 @@
+{
+  "presets": ["@babel/typescript"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@components": "./src/components/",
+          "@styles": "./src/styles/"
+        }
+      },
+      "@babel/plugin-transform-modules-commonjs"
+    ]
+  ],
+  "exclude": "/node_modules/"
+}
