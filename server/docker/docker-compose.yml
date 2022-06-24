@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ../.docker/mongodb:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      box_universe:
+        ipv4_address: 172.26.22.100
+  node:
+    build:
+      context: ../
+      # dockerfile: ./docker/Dockerfile.prod # production
+      dockerfile: ./docker/Dockerfile.dev # development
+    ports:
+      - 3000:3000
+    volumes:
+      - ../src:/server/src/ # development
+      # - ../dist/:/server/dist # development
+    networks:
+      box_universe:
+        ipv4_address: 172.26.22.101
+networks:
+  box_universe:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.26.22.0/24
