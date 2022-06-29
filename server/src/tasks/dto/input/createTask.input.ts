@@ -3,11 +3,15 @@ import { IsNotEmpty } from 'class-validator';
 
 @InputType()
 export class CreateTaskInput {
-  @Field()
+  @Field(() => String)
   @IsNotEmpty()
   title: string;
 
-  @Field()
+  @Field(() => String)
+  @IsNotEmpty()
+  idAuthor: string;
+
+  @Field(() => String)
   @IsNotEmpty()
   description: string;
 }

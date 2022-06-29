@@ -8,7 +8,7 @@ import { TaskService } from './task.service';
 export class TaskResolver {
   constructor(private readonly taskService: TaskService) {}
   @Query(() => Task, {
-    name: 'task',
+    name: 'getTaskById',
     nullable: false,
   })
   async getTaskById(@Args() getTaskArgs: GetTaskArgs) {
