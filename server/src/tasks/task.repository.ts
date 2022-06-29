@@ -1,10 +1,11 @@
-import { NotFoundException } from '@nestjs/common';
 import { DeleteResult, EntityRepository, Repository } from 'typeorm';
 import { Task } from './task.entity';
 import { CreateTaskDto } from './dto/createTask.dto';
 import { TaskStatus } from './types/TaskStatus.enum';
 import { ObjectId } from 'mongodb';
 import { GetTaskFilterDto } from './dto/getFilterTask.dto';
+import { Author } from 'src/authors/author.entity';
+import { CreateTaskInput } from './dto/input/createTask.input';
 
 @EntityRepository(Task)
 export class TaskRepository extends Repository<Task> {
@@ -24,39 +25,39 @@ export class TaskRepository extends Repository<Task> {
     return tasks;
   }
   async getAllTask(): Promise<Task[]> {
-    return await this.find({});
+    return this.find({});
   }
 
   public async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
-    const { title, description } = createTaskDto;
+    const { title, author, description } = createTaskDto;
     const task = this.create({
       title: title,
+      author: author,
       description: description,
       status: TaskStatus.OPEN,
     });
     await this.save(task);
     return task;
   }
-  public async _createTask({ title, description }): Promise<Task> {
+  public async _createTask(createTaskInput: CreateTaskInput, author: Author): Promise<Task> {
     const task = this.create({
-      title: title,
-      description: description,
+      title: createTaskInput.title,
+      author,
+      description: createTaskInput.description,
       status: TaskStatus.OPEN,
     });
     await this.save(task);
     return task;
   }
-  async getTaskById(id: ObjectId): Promise<Task> {
-    const found = await this.findOne({
+  getTaskById(id: ObjectId): Promise<Task> {
+    return this.findOne({
       _id: id,
     });
-    if (!found) throw new NotFoundException(`Task with ID ${id} not found`);
-    return found;
   }
 
-  async deleteTaskById(id): Promise<DeleteResult> {
+  deleteTaskById(id): Promise<DeleteResult> {
     const user = new Task();
     user._id = id;
-    return await this.delete(id);
+    return this.delete(id);
   }
 }

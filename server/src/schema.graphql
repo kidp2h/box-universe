@@ -1,0 +1,39 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Author {
+  _id: String!
+  name: String!
+}
+
+input CreateAuthorInput {
+  name: String!
+}
+
+input CreateTaskInput {
+  title: String!
+  idAuthor: String!
+  description: String!
+}
+
+type Mutation {
+  createTask(createTaskInput: CreateTaskInput!): Task!
+  createAuthor(createAuthorInput: CreateAuthorInput!): Author!
+}
+
+type Query {
+  getTaskById(_id: String!): Task!
+  tasks: [Task!]!
+  getAuthorById(_id: String, name: String): Author!
+  getAuthorByName(_id: String, name: String): Author!
+  authors: [Author!]!
+}
+
+type Task {
+  _id: String!
+  author: Author!
+  title: String!
+  description: String!
+  status: String!
+}

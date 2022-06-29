@@ -5,9 +5,11 @@ import { TaskService } from './task.service';
 import { TaskRepository } from './task.repository';
 import { Task } from './task.entity';
 import { TaskResolver } from './task.resolver';
+import { Author } from 'src/authors/author.entity';
+import { AuthorRepository } from 'src/authors/author.repository';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([TaskRepository]), Task],
+  imports: [TypeOrmModule.forFeature([TaskRepository, AuthorRepository]), Task, Author],
   controllers: [TaskController],
   providers: [TaskService, TaskResolver],
 })
