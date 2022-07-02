@@ -1,14 +1,20 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { Args, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import { RequireAtLeast } from '@pipes/RequireAtLeast.pipe';
+import { Author } from 'src/authors/authors.schema';
+import { AuthorsService } from 'src/authors/authors.service';
+import { AuthorInput } from 'src/authors/dto/author.input';
 import { TaskInput } from './dto/task.input';
 import { Task } from './tasks.schema';
 import { TasksService } from './tasks.service';
 
-@Resolver(() => Task)
 @Injectable()
+@Resolver(() => Task)
 export class TasksResolver {
-  constructor(private readonly tasksService: TasksService) {}
+  constructor(
+    private readonly authorsService: AuthorsService,
+    private readonly tasksService: TasksService,
+  ) {}
 
   @Query(() => Task, {
     name: 'getTask',
@@ -42,8 +48,9 @@ export class TasksResolver {
     return 'true';
   }
 
-  // @ResolveField('author', () => Author)
-  // async getAuthor(@Parent() author: AuthorInput) {
-  //   return this.authorsService.getAuthor(author);
-  // }
+  @ResolveField('author', () => Author, { nullable: false })
+  async getAuthor(@Parent() task: Task) {
+    const author = await this.authorsService.getAuthor(task.author);
+    return author;
+  }
 }

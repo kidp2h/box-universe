@@ -17,7 +17,9 @@ export class AuthorsService {
   async getListAuthors(): Promise<Author[]> {
     return this.authorsRepository.getListAuthors();
   }
-  async getAuthor(authorInput: AuthorInput): Promise<Author> {
+  async getAuthor(authorInput: AuthorInput | Author): Promise<Author> {
+    console.log(authorInput);
+
     return this.authorsRepository.getAuthor(authorInput);
   }
 }

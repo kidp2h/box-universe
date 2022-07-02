@@ -8,5 +8,6 @@ import { AuthorsService } from './authors.service';
 @Module({
   imports: [MongooseModule.forFeature([{ name: Author.name, schema: AuthorSchema }])],
   providers: [AuthorsService, AuthorsRepository, AuthorsResolver],
+  exports: [AuthorsService],
 })
 export class AuthorsModule {}

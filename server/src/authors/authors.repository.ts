@@ -20,7 +20,7 @@ export class AuthorsRepository {
   async getListAuthors(): Promise<Author[]> {
     return this.authorModel.find({});
   }
-  async getAuthor(authorInput: AuthorInput): Promise<Author> {
+  async getAuthor(authorInput: AuthorInput | Author): Promise<Author> {
     return this.authorModel.findOne(authorInput);
   }
 }
