@@ -7,33 +7,35 @@ type Author {
   name: String!
 }
 
-input CreateAuthorInput {
-  name: String!
-}
-
-input CreateTaskInput {
-  title: String!
-  idAuthor: String!
-  description: String!
+input AuthorInput {
+  _id: String
+  name: String
 }
 
 type Mutation {
-  createTask(createTaskInput: CreateTaskInput!): Task!
-  createAuthor(createAuthorInput: CreateAuthorInput!): Author!
+  createAuthor(authorInput: AuthorInput!): Author!
+  deleteAuthor(deleteAuthorInput: AuthorInput!): String
+  createTask(taskInput: TaskInput!): Task!
+  deleteTask(taskInput: TaskInput!): String
 }
 
 type Query {
-  getTaskById(_id: String!): Task!
-  tasks: [Task!]!
-  getAuthorById(_id: String, name: String): Author!
-  getAuthorByName(_id: String, name: String): Author!
-  authors: [Author!]!
+  getListAuthors: [Author!]
+  getAuthor(authorInput: AuthorInput!): Author
+  getTask(taskInput: TaskInput!): Task
+  getListTasks: [Task!]
 }
 
 type Task {
   _id: String!
-  author: Author!
   title: String!
   description: String!
-  status: String!
+  author: Author!
+}
+
+input TaskInput {
+  _id: String
+  title: String
+  author: String
+  description: String
 }
