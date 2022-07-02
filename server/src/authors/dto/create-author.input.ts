@@ -3,7 +3,7 @@ import { IsNotEmpty } from 'class-validator';
 
 @InputType()
 export class CreateAuthorInput {
-  @Field()
+  @Field(() => String)
   @IsNotEmpty()
   name: string;
 }
