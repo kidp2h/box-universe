@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { DeleteResult } from 'mongodb';
+import { DeleteResult, ObjectId } from 'mongodb';
 import { AuthorsRepository } from './authors.repository';
 import { Author } from './authors.schema';
 import { AuthorInput } from './dto/author.input';
@@ -17,9 +17,7 @@ export class AuthorsService {
   async getListAuthors(): Promise<Author[]> {
     return this.authorsRepository.getListAuthors();
   }
-  async getAuthor(authorInput: AuthorInput | Author): Promise<Author> {
-    console.log(authorInput);
-
+  async getAuthor(authorInput: AuthorInput): Promise<Author> {
     return this.authorsRepository.getAuthor(authorInput);
   }
 }

@@ -7,7 +7,11 @@ import { TasksResolver } from './tasks.resolver';
 import { AuthorsModule } from 'src/authors/authors.module';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: Task.name, schema: TaskSchema }]), AuthorsModule],
+  imports: [
+    MongooseModule.forFeature([{ name: Task.name, schema: TaskSchema }]),
+    forwardRef(() => AuthorsModule),
+  ],
   providers: [TasksService, TasksRepository, TasksResolver],
+  exports: [TasksService],
 })
 export class TasksModule {}

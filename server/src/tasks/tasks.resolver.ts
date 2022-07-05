@@ -12,7 +12,7 @@ import { TasksService } from './tasks.service';
 @Resolver(() => Task)
 export class TasksResolver {
   constructor(
-    private readonly authorsService: AuthorsService,
+    @Inject(forwardRef(() => AuthorsService)) private readonly authorsService: AuthorsService,
     private readonly tasksService: TasksService,
   ) {}
 
@@ -50,7 +50,9 @@ export class TasksResolver {
 
   @ResolveField('author', () => Author, { nullable: false })
   async getAuthor(@Parent() task: Task) {
-    const author = await this.authorsService.getAuthor(task.author);
-    return author;
+    const taskInput = {
+      _id: task.author,
+    };
+    return this.authorsService.getAuthor(taskInput);
   }
 }
