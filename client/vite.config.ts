@@ -7,7 +7,10 @@ export default defineConfig({
     alias({
       entries: [
         { find: '@components', replacement: '/src/components' },
-        { find: '@styles', replacement: '/src/styles' },
+        { find: '@routes', replacement: '/src/routes' },
+        { find: '@pages', replacement: '/src/pages' },
+        { find: '@styles', replacement: '/src/assets/styles' },
+        { find: '@vendor', replacement: '/src/assets/vendor' },
       ],
     }),
     react({

@@ -1,9 +1,6 @@
 import React from 'react';
-import Header from '@components/Header';
+import '@vendor/normalize.min.css';
+import Router from '@routes';
 
-const App = () => (
-  <div>
-    <Header title="Box Universe" />
-  </div>
-);
+const App = () => <Router />;
 export default App;
