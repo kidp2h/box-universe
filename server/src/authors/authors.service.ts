@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { DeleteResult } from 'mongodb';
+import { DeleteResult, ObjectId } from 'mongodb';
 import { AuthorsRepository } from './authors.repository';
 import { Author } from './authors.schema';
 import { AuthorInput } from './dto/author.input';

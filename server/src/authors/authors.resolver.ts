@@ -1,12 +1,18 @@
-import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { forwardRef, Inject } from '@nestjs/common';
+import { Args, Mutation, Query, ResolveField, Resolver } from '@nestjs/graphql';
 import { RequireAtLeast } from '@pipes/RequireAtLeast.pipe';
+import { Task } from 'src/tasks/tasks.schema';
+import { TasksService } from 'src/tasks/tasks.service';
 import { Author } from './authors.schema';
 import { AuthorsService } from './authors.service';
 import { AuthorInput } from './dto/author.input';
 
 @Resolver(() => Author)
 export class AuthorsResolver {
-  constructor(private readonly authorsService: AuthorsService) {}
+  constructor(
+    @Inject(forwardRef(() => TasksService)) private readonly tasksService: TasksService,
+    private readonly authorsService: AuthorsService,
+  ) {}
 
   @Query(() => [Author], {
     name: 'getListAuthors',
@@ -41,5 +47,10 @@ export class AuthorsResolver {
   ): Promise<string> {
     this.authorsService.deleteAuthor(authorInput);
     return 'true';
+  }
+
+  @ResolveField('tasks', () => [Task])
+  async getListTasks(author: Author): Promise<void> {
+    console.log(author);
   }
 }

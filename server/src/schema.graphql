@@ -5,6 +5,7 @@
 type Author {
   _id: String!
   name: String!
+  tasks: [Task!]!
 }
 
 input AuthorInput {
