@@ -32,6 +32,15 @@ module.exports = {
     'react/jsx-fragments': ['off'],
     'react/jsx-no-useless-fragment': 'off',
     eqeqeq: [2, 'always'],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    'no-console': 'warn',
   },
   settings: {
     'import/parsers': {
@@ -42,6 +51,10 @@ module.exports = {
         alwaysTryTypes: true,
         project: 'client/tscinfig.json',
       },
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     },
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
   },
 };
