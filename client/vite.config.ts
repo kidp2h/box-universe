@@ -9,8 +9,11 @@ export default defineConfig({
         { find: '@components', replacement: '/src/components' },
         { find: '@routes', replacement: '/src/routes' },
         { find: '@pages', replacement: '/src/pages' },
+        { find: '@images', replacement: '/src/assets/images' },
+        { find: '@layouts', replacement: '/src/layouts' },
+        { find: '@assets', replacement: '/src/assets' },
+        { find: '@vendors', replacement: '/src/assets/vendors' },
         { find: '@styles', replacement: '/src/assets/styles' },
-        { find: '@vendor', replacement: '/src/assets/vendor' },
       ],
     }),
     react({

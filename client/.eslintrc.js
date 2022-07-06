@@ -38,9 +38,28 @@ module.exports = {
       {
         ts: 'never',
         tsx: 'never',
+        png: 'never',
       },
     ],
     'no-console': 'warn',
+    'react/jsx-props-no-spreading': ['off'],
+    'react/jsx-closing-bracket-location': ['off'],
+    'jsx-a11y/label-has-associated-control': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
+    'jsx-a11y/label-has-for': [
+      'error',
+      {
+        required: {
+          some: ['nesting', 'id'],
+        },
+      },
+    ],
   },
   settings: {
     'import/parsers': {
@@ -52,9 +71,9 @@ module.exports = {
         project: 'client/tscinfig.json',
       },
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.png'],
       },
     },
-    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx', '.png'],
   },
 };

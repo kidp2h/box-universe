@@ -19,10 +19,13 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
+      "@layouts/*": ["./src/layouts/*"],
       "@routes/*": ["./src/routes/*"],
       "@routes": ["./src/routes/"],
       "@styles/*": ["./src/assets/styles/*"],
-      "@vendor/*": ["./src/assets/vendor/*"]
+      "@assets/*": ["./src/assets/*"],
+      "@images/*": ["./src/assets/images/*"],
+      "@vendors/*": ["./src/assets/vendors/*"]
     }
   },
   "include": ["src"],
