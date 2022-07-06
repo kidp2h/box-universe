@@ -7,8 +7,5 @@
   "author": "kidp2h",
   "license": "MIT",
   "private": true,
-  "dependencies": {
-    "@nestjs/mongoose": "^9.1.1",
-    "@types/mongoose": "^5.11.97"
-  }
+  "dependencies": {}
 }

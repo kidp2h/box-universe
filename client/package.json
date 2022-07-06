@@ -16,6 +16,8 @@
     "eslint-import-resolver-babel-module": "^5.3.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-hook-form": "^7.33.1",
+    "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "ts-loader": "^9.3.0",
@@ -26,7 +28,8 @@
     "webpack-node-externals": "^3.0.0"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "yarn run build:css && vite",
+    "build:css": "yarn run tailwindcss -i ./src/assets/styles/tw.css -o ./src/assets/styles/tailwindcss.css",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
@@ -72,7 +75,8 @@
     "fork-ts-checker-webpack-plugin": "^7.2.11",
     "prettier": "^2.7.1",
     "sass": "^1.52.2",
-    "style-loader": "^3.3.1"
+    "style-loader": "^3.3.1",
+    "tailwindcss": "^3.1.4"
   },
   "license": "MIT"
 }

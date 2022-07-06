@@ -7,7 +7,8 @@
         "root": ["./"],
         "alias": {
           "@components": "./src/components/",
-          "@styles": "./src/styles/"
+          "@images": "./src/assets/images/",
+          "@styles": "./src/assets/styles/"
         }
       },
       "@babel/plugin-transform-modules-commonjs"
