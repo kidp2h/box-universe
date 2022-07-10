@@ -1,13 +1,15 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthRoutes } from './AuthRoutes';
-import { HomeRoutes } from './HomeRoutes';
+import { MainRoutes } from './MainRoutes';
 
-const Router: React.FC = () => (
-  <BrowserRouter>
-    <AuthRoutes />
-    <HomeRoutes />
-  </BrowserRouter>
-);
+const Router: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <AuthRoutes />
+      <MainRoutes />
+    </BrowserRouter>
+  );
+};
 
 export default Router;
