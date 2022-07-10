@@ -9,6 +9,7 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -60,6 +61,8 @@ module.exports = {
         },
       },
     ],
+    'react/require-default-props': 'off',
+    'no-param-reassign': 'off',
   },
   settings: {
     'import/parsers': {

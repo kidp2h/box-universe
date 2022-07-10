@@ -10,6 +10,8 @@ type Props = {
 const Blob = (props: Props) => {
   const { image, x, y } = props;
   /* eslint-disable */
+  console.log('blob-render');
+
   return (
     <div className="lg:flex hidden">
       <div className={classnames(styles.blobGradient)}>
@@ -92,4 +94,4 @@ const Blob = (props: Props) => {
   );
 };
 
-export default Blob;
+export default React.memo(Blob);

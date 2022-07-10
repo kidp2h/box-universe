@@ -4,10 +4,9 @@ import MainLayout from '@layouts/MainLayout';
 type Props = {
   page: string;
 };
-const Home: React.FC = ({ page }: Props) => {
+const Settings = ({ page }: Props) => {
   const x = 5;
-
-  return <span>Home</span>;
+  return <span>Settings</span>;
 };
 
-export default Home;
+export default Settings;

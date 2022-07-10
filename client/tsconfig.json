@@ -13,7 +13,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
@@ -25,7 +25,10 @@
       "@styles/*": ["./src/assets/styles/*"],
       "@assets/*": ["./src/assets/*"],
       "@images/*": ["./src/assets/images/*"],
-      "@vendors/*": ["./src/assets/vendors/*"]
+      "@validations/*": ["./src/validations/*"],
+      "@vendors/*": ["./src/assets/vendors/*"],
+      "@stores/*": ["./src/stores/*"],
+      "@features/*": ["./src/features/*"]
     }
   },
   "include": ["src"],
