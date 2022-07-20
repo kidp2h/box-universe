@@ -19,7 +19,10 @@
     "noFallthroughCasesInSwitch": false,
     "strict": false,
     "paths": {
-      "@pipes/*": ["./src/common/pipes/*"]
+      "@pipes/*": ["./src/common/pipes/*"],
+      "@validatiors/*": ["./src/common/validators/*"],
+      "@decorators/*": ["./src/common/decorators/*"],
+      "@users/*": ["./src/users/*"]
     }
   }
 }

@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  node-client:
+    build:
+      context: ../
+      # dockerfile: ./docker/Dockerfile.prod # production
+      dockerfile: ./docker/Dockerfile.dev # development
+    ports:
+      - 5000:5000
+    volumes:
+      - ../src:/client/src/ # development
+      # - ../dist/:/server/dist # development
+    networks:
+      box_universe-client:
+        ipv4_address: 172.24.22.101
+networks:
+  box_universe-client:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.24.22.0/24

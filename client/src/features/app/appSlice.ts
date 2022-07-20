@@ -11,7 +11,9 @@ const appSlice = createSlice({
   initialState,
   reducers: {
     changePage(state, action) {
-      state.page = action.payload;
+      // state.page = action.payload;
+      // return { ...state, action.payload };
+      return { page: action.payload };
     },
   },
 });

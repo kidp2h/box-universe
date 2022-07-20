@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import AuthLayout from '@layouts/AuthLayout';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import {
@@ -136,7 +135,7 @@ const Login: React.FC = () => {
       <FormGroup className="mt-5 h-fit justify-self-start self-start ">
         <div className="buttonIcon relative hover:bg-purple-500 rounded-lg ">
           <input
-            type={'submit'}
+            type="submit"
             className="w-16 h-16 border-purple-500 rounded-lg btnNeon text-transparent hover:bg-purple-500 cursor-pointer "
           />
           <IoArrowForwardOutline

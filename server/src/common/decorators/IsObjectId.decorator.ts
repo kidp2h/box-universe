@@ -1,5 +1,5 @@
 import { registerDecorator, ValidationOptions } from 'class-validator';
-import { IsObjectIdConstraint } from '../validator/ObjectId.validator';
+import { IsObjectIdConstraint } from '@validatiors/ObjectId.validator';
 
 export function IsObjectId(validationOptions?: ValidationOptions) {
   return function (object: any, propertyName: string) {

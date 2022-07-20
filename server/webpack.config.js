@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const nodeExternals = require('webpack-node-externals');
 const { RunScriptWebpackPlugin } = require('run-script-webpack-plugin');
+const path = require('path');
 
 module.exports = function (options, webpack) {
   return {
@@ -11,7 +12,7 @@ module.exports = function (options, webpack) {
         allowlist: ['webpack/hot/poll?100'],
       }),
     ],
-    mode: 'production',
+    mode: 'development',
     plugins: [
       ...options.plugins,
       new webpack.HotModuleReplacementPlugin(),
@@ -20,5 +21,14 @@ module.exports = function (options, webpack) {
       }),
       new RunScriptWebpackPlugin({ name: options.output.filename }),
     ],
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
+      symlinks: false,
+      alias: {
+        '@decorators': path.resolve('./src/common/decorators/'),
+        '@pipes': path.resolve('./src/common/pipes/'),
+        '@validators': path.resolve('./src/common/validators/'),
+      },
+    },
   };
 };

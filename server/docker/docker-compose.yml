@@ -13,9 +13,9 @@ services:
     ports:
       - 27017:27017
     networks:
-      box_universe:
-        ipv4_address: 172.26.22.100
-  node:
+      box_universe-server:
+        ipv4_address: 176.26.22.100
+  node-server:
     build:
       context: ../
       # dockerfile: ./docker/Dockerfile.prod # production
@@ -26,12 +26,12 @@ services:
       - ../src:/server/src/ # development
       # - ../dist/:/server/dist # development
     networks:
-      box_universe:
-        ipv4_address: 172.26.22.101
+      box_universe-server:
+        ipv4_address: 176.26.22.101
 networks:
-  box_universe:
+  box_universe-server:
     driver: bridge
     ipam:
       driver: default
       config:
-        - subnet: 172.26.22.0/24
+        - subnet: 176.26.22.0/24
