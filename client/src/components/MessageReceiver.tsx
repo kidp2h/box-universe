@@ -10,7 +10,7 @@ const MessageReceiver = (props: Props) => {
   const { message } = props;
   return (
     <div className="flex flex-row friend mb-3 ">
-      <Avatar alt="" src={avatar} />
+      <Avatar alt="" src={avatar.src} />
       <div className="ml-5 flex flex-col items-start justify-center">
         <span className="max-w-sm break-words border border-gray-500 rounded-bl-2xl rounded-r-2xl py-3 px-3 ">
           {message}
