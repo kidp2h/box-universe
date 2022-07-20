@@ -3,7 +3,6 @@ import { Args, Mutation, Parent, Query, ResolveField, Resolver } from '@nestjs/g
 import { RequireAtLeast } from '@pipes/RequireAtLeast.pipe';
 import { Author } from 'src/authors/authors.schema';
 import { AuthorsService } from 'src/authors/authors.service';
-import { AuthorInput } from 'src/authors/dto/author.input';
 import { TaskInput } from './dto/task.input';
 import { Task } from './tasks.schema';
 import { TasksService } from './tasks.service';

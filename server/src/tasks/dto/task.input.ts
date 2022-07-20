@@ -1,7 +1,7 @@
 import { ArgsType, Field, InputType } from '@nestjs/graphql';
 import { IsOptional, IsString } from 'class-validator';
 import { ObjectId } from 'mongodb';
-import { IsObjectId } from 'src/common/decorator/IsObjectId.decorator';
+import { IsObjectId } from '@decorators/IsObjectId.decorator';
 import { Task } from '../tasks.schema';
 
 @ArgsType()

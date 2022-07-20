@@ -2,41 +2,25 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Author {
-  _id: String!
-  name: String!
-  tasks: [Task!]!
-}
-
-input AuthorInput {
-  _id: String
-  name: String
-}
-
 type Mutation {
-  createAuthor(authorInput: AuthorInput!): Author!
-  deleteAuthor(deleteAuthorInput: AuthorInput!): String
-  createTask(taskInput: TaskInput!): Task!
-  deleteTask(taskInput: TaskInput!): String
+  createUser(userInput: UserInput!): User!
 }
 
 type Query {
-  getListAuthors: [Author!]
-  getAuthor(authorInput: AuthorInput!): Author
-  getTask(taskInput: TaskInput!): Task
-  getListTasks: [Task!]
+  getUser(userInput: UserInput!): User
 }
 
-type Task {
+type User {
   _id: String!
-  title: String!
-  description: String!
-  author: Author!
+  username: String!
+  password: String!
+  email: String!
+  provider: String!
 }
 
-input TaskInput {
+input UserInput {
   _id: String
-  title: String
-  author: String
-  description: String
+  username: String
+  password: String
+  email: String
 }

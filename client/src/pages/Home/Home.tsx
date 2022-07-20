@@ -1,13 +1,16 @@
 import React from 'react';
-import MainLayout from '@layouts/MainLayout';
+import WritePost from '@components/WritePost';
+import Newsfeed from '@components/Newsfeed';
 
-type Props = {
-  page: string;
-};
-const Home: React.FC = ({ page }: Props) => {
+const Home: React.FC = () => {
   const x = 5;
 
-  return <span>Home</span>;
+  return (
+    <>
+      <WritePost />
+      <Newsfeed />
+    </>
+  );
 };
 
 export default Home;

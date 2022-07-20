@@ -1,21 +1,45 @@
-import React, { ReactNode } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, StoreDispatch } from '@stores/app';
 import Sidebar from '@components/Sidebar';
-import Blob from '@components/Blob';
-import Mesh1 from '@images/mesh3.jpg';
-import { Outlet } from 'react-router-dom';
-import store from '@stores/app';
 
-const MainLayout = (props: {}) => {
-  const { appSlice } = store.getState();
-  // console.log(appSlice);
+import { Outlet, useLocation } from 'react-router-dom';
+import { Topbar } from '@components/Topbar';
+import bg from '@images/bg.png';
+import ListFriend from '@components/ListFriend';
+import ListRequest from '@components/ListRequest';
+import { changePage } from '@features/app/appSlice';
+import ListFriendChat from '@components/ListFriendChat';
+
+const MainLayout = () => {
+  const page = useSelector<RootState>((state) => state.appSlice.page);
+  const dispatch = useDispatch<StoreDispatch>();
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const [, name] = location.pathname.split('/');
+    if (name === '') dispatch(changePage('home'));
+    else dispatch(changePage(name));
+  }, [location]);
   return (
     <>
-      <Blob x={-455} y={-10} image={Mesh1} />
+      <img id="bg" className="fixed top-0 left-0 min-w-full min-h-full" src={bg} alt="" />
       <div className="wrapLayout flex h-full w-full">
-        <Sidebar />
-        <div className="mainContent ml-20 text-white">
-          <Outlet />
+        <Topbar page={page} />
+        <Sidebar page={page} />
+        {page === 'home' && <ListFriend />}
+        {page === 'chat' && <ListFriendChat />}
+        <div className="mainContent w-full  text-white h-5/6 absolute bottom-0">
+          <div className="ml-24  h-full mt-0 flex flex-row">
+            <div className="w-full flex justify-center">
+              <div className="w-6/12">
+                <Outlet />
+              </div>
+            </div>
+          </div>
         </div>
+        {page === 'home' && <ListRequest />}
       </div>
     </>
   );

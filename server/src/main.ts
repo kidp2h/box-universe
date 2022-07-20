@@ -7,10 +7,14 @@ import * as bodyParser from 'body-parser';
 import helmet from 'helmet';
 import * as cookieParser from 'cookie-parser';
 import * as session from 'express-session';
+import * as os from 'os';
 
 declare const module: any;
 
 async function bootstrap() {
+  const cpus = os.cpus().length;
+  console.log(cpus);
+  process.env.UV_THREADPOOL_SIZE = cpus.toString();
   const app = await NestFactory.create(AppModule, { cors: true });
   app.useGlobalPipes(new ValidationPipe());
   app.use(compression());

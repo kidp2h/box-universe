@@ -1,0 +1,8 @@
+FROM node:lts
+RUN apt-get update -y && apt-get upgrade -y
+WORKDIR /client
+COPY package.json .
+RUN yarn install --production
+COPY ./dist/ ./dist/
+EXPOSE 5000
+CMD yarn run start
