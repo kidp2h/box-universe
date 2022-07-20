@@ -1,11 +1,11 @@
 {
-  "name": "client1",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 5000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 5000",
     "lint": "next lint",
     "build:css": "yarn run tailwindcss -i ./src/styles/tw.css -o ./src/styles/tailwindcss.css"
   },
@@ -50,9 +50,12 @@
     "eslint": "^8.20.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-next": "12.2.2",
+    "eslint-config-next": "^12.2.2",
     "eslint-import-resolver-typescript": "^3.2.7",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-next": "^0.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "sass": "^1.53.0",
