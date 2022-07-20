@@ -15,7 +15,7 @@ const FriendChat = () => {
           vertical: 'bottom',
           horizontal: 'right',
         }}>
-        <Avatar alt="Remy Sharp" src={avatar} />
+        <Avatar alt="Remy Sharp" src={avatar.src} />
       </Badge>
       <div className="text-white ml-5 flex flex-col justify-between w-full">
         <div className="w-full justify-between flex items-center">

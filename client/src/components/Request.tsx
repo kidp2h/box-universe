@@ -4,8 +4,6 @@ import avatar from '@images/logo.png';
 import { IoCheckmarkOutline, IoCloseOutline } from 'react-icons/io5';
 
 const Request = () => {
-  const x = 5;
-
   return (
     <div className="friend mt-7 mb-3 flex flex-row justify-center items-center text-white w-full">
       <Badge
@@ -13,7 +11,7 @@ const Request = () => {
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         color="success"
         variant="dot">
-        <Avatar alt="Remy Sharp" src={avatar} />
+        <Avatar alt="Remy Sharp" src={avatar.src} />
       </Badge>
       <div className="text-white ml-5">KidP2H Box</div>
       <div className="relative">

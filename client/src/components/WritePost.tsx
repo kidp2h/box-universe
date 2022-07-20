@@ -1,6 +1,9 @@
-import React, { HTMLElementEventMap, SetStateAction, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, SetStateAction, useEffect, useRef, useState } from 'react';
 import { IoHappyOutline, IoImageOutline, IoVideocamOutline } from 'react-icons/io5';
-import EmojiPicker from '@components/EmojiPicker';
+import 'emoji-mart-next/css/emoji-mart.css';
+
+// @ts-ignore
+import { Picker } from 'emoji-mart-next';
 
 const WritePost = () => {
   const [showIcon, setShowIcon] = useState<boolean>(false);
@@ -9,7 +12,7 @@ const WritePost = () => {
   const iconEmojiRef = useRef<HTMLDivElement>(null);
   const refTextArea = useRef<HTMLTextAreaElement>(null);
 
-  const handleInputContent = (e: HTMLElementEventMap<HTMLTextAreaElement>) => {
+  const handleInputContent = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setContent(e.target.value);
   };
 
@@ -48,7 +51,7 @@ const WritePost = () => {
           ref={refTextArea}
         />
         <div className="absolute top-48 right-0 z-50" ref={emojiPickerRef}>
-          {showIcon && <EmojiPicker onEmojiSelect={handleEmojiSelect} />}
+          {showIcon && <Picker onSelect={handleEmojiSelect} set="apple" darkMode="true" />}
         </div>
       </div>
 
@@ -76,7 +79,7 @@ const WritePost = () => {
         </div>
       </div>
       <div className="mt-3 flex justify-center items-center bg-purple-500 w-full h-10 rounded-md cursor-pointer">
-        <input type="file" id="image" />
+        <input type="file" id="image" name="image" />
         <span>POST</span>
       </div>
     </div>

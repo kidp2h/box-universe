@@ -15,7 +15,7 @@ const MessageSender = (props: Props) => {
         </span>
         <div className="text-gray-500 text-xs mt-3">9:30PM</div>
       </div>
-      <Avatar alt="" src={avatar} />
+      <Avatar alt="" src={avatar.src} />
     </div>
   );
 };
