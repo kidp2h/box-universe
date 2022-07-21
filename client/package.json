@@ -10,6 +10,7 @@
     "build:css": "yarn run tailwindcss -i ./src/styles/tw.css -o ./src/styles/tailwindcss.css"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@emoji-mart/data": "^1.0.3",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -20,6 +21,7 @@
     "classnames": "^2.3.1",
     "emoji-mart": "^5.1.0",
     "emoji-mart-next": "^2.11.2",
+    "graphql": "^16.5.0",
     "next": "12.2.2",
     "next-redux-wrapper": "^7.0.5",
     "react": "18.2.0",
@@ -44,7 +46,6 @@
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "airbnb": "^0.0.2",
     "autoprefixer": "^10.4.7",
-    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.5",
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^8.20.0",

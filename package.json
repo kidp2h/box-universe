@@ -7,5 +7,6 @@
   "author": "kidp2h",
   "license": "MIT",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {}
 }
