@@ -2,7 +2,7 @@ FROM node:lts
 RUN apt-get update -y && apt-get upgrade -y
 WORKDIR /client
 COPY package.json .
-RUN yarn install
+RUN yarn install --network-timeout=990000
 COPY . .
 EXPOSE 5000
 CMD yarn run dev
