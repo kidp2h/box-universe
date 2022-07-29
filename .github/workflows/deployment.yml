@@ -21,22 +21,18 @@ jobs:
     steps:
       - name: Copy repository
       - uses: actions/checkout@v2
-      
       - name: Use NodeJS ${{ matrix.node-version }}
       - uses: actions/setup-node@v1
       - with:
           node-version: ${{ matrix.node-version }}
-          
       - name: Install dependencies
       - uses: borales/actions-yarn@v3.0.0
       - with:
           cmd: install
-          
       - name: Lint project
       - uses: borales/actions-yarn@v3.0.0
       - with:
           cmd: lint
-          
       - name: Run test
       - uses: borales/actions-yarn@v3.0.0
       - with:
