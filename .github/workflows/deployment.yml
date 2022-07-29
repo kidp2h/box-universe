@@ -19,18 +19,20 @@ jobs:
         node-version: [12.x]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Copy repository
+    
       - uses: actions/checkout@v2
-      - name: Use NodeJS ${{ matrix.node-version }}
+      
       - uses: actions/setup-node@v1
       - with:
           node-version: ${{ matrix.node-version }}
+          
       - uses: borales/actions-yarn@v3.0.0
       - with:
           cmd: install
       - uses: borales/actions-yarn@v3.0.0
       - with:
           cmd: lint
+          
       - uses: borales/actions-yarn@v3.0.0
       - with:
           cmd: test
